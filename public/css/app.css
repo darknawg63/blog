@@ -1,0 +1,65 @@
+.sauron {
+  position : absolute;
+  cursor : pointer;
+  display : block;
+  background-image : url('/blog/public/img/sauron.svg');
+  background-size : cover;
+}
+
+.sauron-show {
+  background-image : url('/blog/public/img/sauron_inverted.svg');
+}
+
+form .small-6.columns {
+    float: none;
+    margin: 0px auto;
+}
+
+input[type="text"],input[type="password"],input[type="email"] {
+    width: 320px;
+    display: block;
+} 
+
+input[type="submit"] {
+    display: block;
+}
+
+.header {
+    background-color: #2980b9;
+    padding: 2rem 4rem;
+    text-align: center;
+    color: #fff;
+    width:100%;
+}
+
+.footer {
+    background-color: #2980b9;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: #fff;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+.footer h4 {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.footer p, a {
+    font-weight: 300; 
+    font-size: .8em;
+}
+
+.footer-links {
+    list-style-type: none;
+}
+
+.footer-links li {
+    margin-top: .5em;
+}

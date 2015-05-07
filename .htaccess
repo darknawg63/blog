@@ -1,0 +1,3 @@
+ReWriteEngine On
+ReWriteCond %{REQUEST_FILENAME} !-f
+ReWriteRule ^ index.php [QSA,L]

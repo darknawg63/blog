@@ -1,0 +1,12 @@
+{
+    "require": {
+        "slim/slim": "~2.0",
+        "slim/views": "0.1.*",
+        "twig/twig": "~1.18"
+    },
+    "autoload": {
+        "classmap": [
+            "core/classes"
+        ]
+    }
+}
