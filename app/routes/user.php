@@ -73,21 +73,27 @@ $app->post('/user/auth', function() use ($app) {
 
     if(Token::check($auth['token'])){
 
-    }
-
-    $validate = new Validate();
-    $validation = $validate->check($_POST, array(
+        $validate = new Validate();
+        $validation = $validate->check($_POST, array(
             'name'     => array('required' => true),
             'password' => array('required' => true)
-    ));
-
-    $validation->passed();
-    $user = new User();
-    $remember = (Input::get('remember') === 'on') ? true : false;
-    $login = $user->login($auth['name'], $auth['password'], $remember);
-
-    if($login) {
-
+        ));
+    
+        $validation->passed();
+        $user = new User();
+        $remember = (Input::get('remember') === 'on') ? true : false;
+        $login = $user->login($auth['name'], $auth['password'], $remember);
+        
+        $app->response->redirect($app->urlFor('home'), 200);
     }
 
-})->name('user.auth');
+})->name('auth');
+
+$app->get('/logout', function() use ($app) {
+
+    $user = new User();
+    $user->logout();
+
+    $app->response->redirect($app->urlFor('login'), 200);
+
+})->name('logout');

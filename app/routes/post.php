@@ -1,6 +1,7 @@
 <?php
 
 $app->get('/', function() use ($app) {
+    (!is_LoggedIn()) ? $app->response->redirect($app->urlFor('login'), 303) : true;
 
     $db = DB::getInstance();
     
@@ -18,7 +19,8 @@ $app->get('/', function() use ($app) {
 
 
 $app->get('/posts/:postId', function($postId) use ($app) {
-    
+    (!is_LoggedIn()) ? $app->response->redirect($app->urlFor('login'), 303) : true;
+
     $post = $app->db->prepare("
         SELECT
         posts.*, users.name AS author

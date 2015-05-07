@@ -19,7 +19,7 @@
             
         {% endblock %}
         <footer class="footer">
-            Copyright © blogspots.org
+            Copyright © droopywillow.io
         </footer>
         <script src="/blog/public/js/vendor/jquery.js"></script>
         <script src="/blog/public/js/foundation/foundation.js"></script>

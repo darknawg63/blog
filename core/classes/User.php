@@ -16,6 +16,7 @@ class User
 
         // If the user parameter has not been set...
         if(!$user) {
+
             // Check if there is a name in the session.
             if(Session::exists($this->_sessionName)) {
 
@@ -24,13 +25,11 @@ class User
                 if($this->find($user)) {
 
                     $this->_isLoggedIn = true;
+                    
                 } else {
-
-                    // process Logout
+                    $this->find($user);
                 }
             }
-        } else {
-            $this->find($user);
         }
     }
 
@@ -72,12 +71,13 @@ class User
 
     public function login($username = null, $password = null, $remember = false)
     {   
+        // If no username and password is given, but there is an user object...
         if(!$username && !$password && $this->exists()) {
 
             Session::put($this->_sessionName, $this->data()->id);
         } else {
             $user = $this->find($username);
-
+ 
             if($user) {
 
                 if($this->data()->password === Hash::make($password, $this->data()->salt)) {
@@ -101,7 +101,8 @@ class User
                             $hash = $hashCheck->first()->hash;
                         }
     
-                        Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));                 
+                        Cookie::put($this->_cookieName, $hash, Config::get('remember/cookie_expiry'));   
+
                     }
     
                     return true;
@@ -146,8 +147,6 @@ class User
 
     public function is_LoggedIn()
     {
-        return $this->_isLoggedIn;
+        return $this->_isLoggedIn; 
     }
-
-
 }

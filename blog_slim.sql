@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2015 at 10:42 PM
+-- Generation Time: May 10, 2015 at 07:23 PM
 -- Server version: 5.6.21-log
 -- PHP Version: 5.6.5
 
@@ -34,16 +34,17 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `title` varchar(255) DEFAULT NULL,
   `body` text,
   `user_id` int(11) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `image` char(27) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `title`, `body`, `user_id`, `created`) VALUES
-(1, 'First Post', 'I''m so excited!', 1, '2015-04-30 13:51:20'),
-(2, 'Second Post', 'This is great!', 1, '2015-04-30 13:51:37');
+INSERT INTO `posts` (`id`, `title`, `body`, `user_id`, `image`, `created`) VALUES
+(1, 'First Post', 'I''m so excited!', 1, '', '2015-04-30 13:51:20'),
+(2, 'Second Post', 'This is great!', 1, '', '2015-05-10 17:20:09');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `users_session` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `hash` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -123,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_session`
 --
 ALTER TABLE `users_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

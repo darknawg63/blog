@@ -8,7 +8,7 @@
                  <li><em>{{ error }}</em></li>
              {% endfor %}
          </ul>
-         <form action="{{ urlFor('user.auth') }}" method="post">
+         <form action="{{ urlFor('auth') }}" method="post">
              <label for="name">Name</label>
              <input type="text" name="name" placeholder="Your name" id="name" autocomplete="off" />
              <label for="password">Password</label>

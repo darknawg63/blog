@@ -54,6 +54,14 @@ function check_token($token)
     return false;
 }
 
+function is_LoggedIn()
+{
+    $user = new User();
+
+    if($user->is_LoggedIn()) {
+        return true;
+    }
+}
 
 function register()
 {

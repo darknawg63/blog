@@ -17,6 +17,7 @@
             <div class="row">
                 <div class="large-9 columns" role="content">
                     <article>
+                        <h3><a href="{{ urlFor('logout') }}" class="logout">Logout</a></h3>
                         <h3><a href="{{ urlFor('posts.show', {'postId': post.id}) }}">{{ post.title }}</a></h3>
                         <h6>Written by {{ post.author }} on {{ post.created }}</h6>
                         <div class="row">
