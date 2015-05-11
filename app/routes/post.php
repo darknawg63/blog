@@ -1,5 +1,6 @@
 <?php
 
+// root
 $app->get('/', function() use ($app) {
     (!is_LoggedIn()) ? $app->response->redirect($app->urlFor('login'), 303) : true;
 
@@ -17,7 +18,7 @@ $app->get('/', function() use ($app) {
     ]);
 })->name('home');
 
-
+// Show
 $app->get('/posts/:postId', function($postId) use ($app) {
     (!is_LoggedIn()) ? $app->response->redirect($app->urlFor('login'), 303) : true;
 
@@ -42,3 +43,13 @@ $app->get('/posts/:postId', function($postId) use ($app) {
         'post' => $post
     ]);
 })->name('posts.show');
+
+// Create
+$app->get('/post/create', function() use ($app) {
+    // Send CSRF Token
+    $token = Token::generate();
+    $app->render('post/new.php', [
+        'token' => $token
+    ]);
+
+})->name('posts.new');

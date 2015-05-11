@@ -20,7 +20,14 @@ input[type="text"],input[type="password"],input[type="email"] {
     display: block;
 } 
 
-input[type="submit"] {
+#title {
+    width: 680px;
+    display: block;
+}
+
+#body {
+    height: 250px;
+    width: 680px;
     display: block;
 }
 
