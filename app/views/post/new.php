@@ -8,7 +8,7 @@
                  <li><em>{{ error }}</em></li>
              {% endfor %}
          </ul>
-         <form action="" method="post">
+         <form action="{{ urlFor('post.add') }}" method="post">
              <label for="title">Title</label>
              <input type="text" name="title" placeholder="Title" id="title" autocomplete="off" />
              <label for="body">Body</label>

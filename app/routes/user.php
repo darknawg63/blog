@@ -84,7 +84,7 @@ $app->post('/user/auth', function() use ($app) {
         $remember = (Input::get('remember') === 'on') ? true : false;
         $login = $user->login($auth['name'], $auth['password'], $remember);
         
-        $app->response->redirect($app->urlFor('home'), 200);
+        $app->response->redirect($app->urlFor('post.index'), 200);
     }
 
 })->name('auth');

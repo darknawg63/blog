@@ -3,7 +3,7 @@
 {% block body %}
 <div class="row">
     <div class="large-9 columns" role="content">
-        <h3><a href="{{ urlFor('home') }}">Home</a></h3>
+        <h3><a href="{{ urlFor('post.index') }}">Home</a></h3>
         <article>
             <h3>{{ post.title }}</h3>
             <h6>Written by {{ post.author }} on {{ post.created }}</h6>

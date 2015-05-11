@@ -13,13 +13,13 @@ $app->get('/', function() use ($app) {
         ON posts.user_id = users.id
     ")->fetchAll(PDO::FETCH_ASSOC);
 
-    $app->render('post/home.php', [
+    $app->render('post/index.php', [
         'posts' => $posts
     ]);
-})->name('home');
+})->name('post.index');
 
 // Show
-$app->get('/posts/:postId', function($postId) use ($app) {
+$app->get('/post/show/:postId', function($postId) use ($app) {
     (!is_LoggedIn()) ? $app->response->redirect($app->urlFor('login'), 303) : true;
 
     $post = $app->db->prepare("
@@ -42,7 +42,7 @@ $app->get('/posts/:postId', function($postId) use ($app) {
     $app->render('post/show.php', [
         'post' => $post
     ]);
-})->name('posts.show');
+})->name('post.show');
 
 // Create
 $app->get('/post/create', function() use ($app) {
@@ -53,3 +53,16 @@ $app->get('/post/create', function() use ($app) {
     ]);
 
 })->name('posts.new');
+
+$app->post('/post/add', function() use ($app) {
+
+    $post = new Post();
+
+    //post->create(array(
+    //   'title' => Input::get('username'),
+    //   'body' => Hash::make(Input::get('password'), $salt),
+    //   'user_id'     => $id,
+    //   'created'     => 'NOW()' 
+    //);
+
+})->name('posts.add');

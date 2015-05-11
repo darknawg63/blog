@@ -20,6 +20,14 @@ input[type="text"],input[type="password"],input[type="email"] {
     display: block;
 } 
 
+#label_remember {
+    display: block;
+}
+
+#register {
+    display: block;
+}
+
 #title {
     width: 680px;
     display: block;
